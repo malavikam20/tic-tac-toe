@@ -4,7 +4,7 @@ import './index.css';
 
 
 const Square = (props) => { //square component
-const [value, setValue] = useState(null); //state hook
+//const [value, setValue] = useState(null); //state hook
   return (
     <button 
     className='square'
