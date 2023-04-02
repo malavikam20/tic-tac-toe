@@ -2,6 +2,8 @@
 
 This project was created using ReactJS.
 
+Link to project-https://tictactoe-20.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
