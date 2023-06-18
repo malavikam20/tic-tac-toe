@@ -23,6 +23,6 @@ jobs:
         aws-region: ap-south-1
     - name: Copy files
       run: |
-        aws s3 cp build/ s3://vavas-bucket/
+        aws s3 cp build/ s3://vavas-bucket/ --recursive
     
     
