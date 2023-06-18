@@ -11,19 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    
-    - name: Use Node.js 16
-      uses: actions/setup-node@v3
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Configure AWS credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v2
       with:
-        node-version: 16
-        cache: 'npm'
-    - run: npm run build
-    
-    - name: AWS
-      uses: aws/aws-cli@v2
-    - run: export AWS_ACCESS_KEY=${secrets.KEY}
-    - run: export AWS_SECRET_KEY=${secrets.SECRET}
-    - run: export AWS_DEFAULT_REGION=ap-south-1
-    - run: aws s3 cp build/ vavas-bucket/
+        role-to-assume: arn:aws:iam::277291477460:role/github-vavasbucket-role
+        aws-region: ap-south-1
+    - name: Copy files
+    - run: aws s3 cp build/ s3://vavas-bucket/
     
     
