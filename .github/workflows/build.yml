@@ -1,0 +1,27 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Configure AWS credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::277291477460:role/github-vavasbucket-role
+        aws-region: ap-south-1
+    - name: Copy files
+    - run: aws s3 cp build/ s3://vavas-bucket/
+    
+    
