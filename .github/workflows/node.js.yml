@@ -20,7 +20,7 @@ jobs:
     - run: npm run build
     
     - name: AWS
-      uses: aws/aws-cli@latest
+      uses: aws/aws-cli@v2
     - run: export AWS_ACCESS_KEY=${secrets.KEY}
     - run: export AWS_SECRET_KEY=${secrets.SECRET}
     - run: export AWS_DEFAULT_REGION=ap-south-1
