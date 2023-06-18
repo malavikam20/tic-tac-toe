@@ -17,13 +17,13 @@ jobs:
       with:
         node-version: 16
         cache: 'npm'
-    - run: npm run build --if-present
+    - run: npm run build
     
     - name: AWS
-      uses: amazon/aws-cli@latest
-    - run: AWS_ACCESS_KEY=${secrets.KEY}
-    - run: AWS_SECRET_KEY=${secrets.SECRET}
-    - run: AWS_DEFAULT_REGION=ap-south-1
+      uses: aws/aws-cli@latest
+    - run: export AWS_ACCESS_KEY=${secrets.KEY}
+    - run: export AWS_SECRET_KEY=${secrets.SECRET}
+    - run: export AWS_DEFAULT_REGION=ap-south-1
     - run: aws s3 cp build/ vavas-bucket/
     
     
