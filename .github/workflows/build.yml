@@ -22,6 +22,7 @@ jobs:
         role-to-assume: arn:aws:iam::277291477460:role/github-vavasbucket-role
         aws-region: ap-south-1
     - name: Copy files
-    - run: aws s3 cp build/ s3://vavas-bucket/
+      run: |
+        aws s3 cp build/ s3://vavas-bucket/
     
     
