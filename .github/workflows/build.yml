@@ -25,7 +25,7 @@ jobs:
     - name: Configure AWS credentials from Test account
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        role-to-assume: arn:aws:iam::${{secrets.ACCOUNT}}:role/github-vavasbucket-role
+        role-to-assume: arn:aws:iam::${{secrets.New_One}}:role/github-vavasbucket-role
         aws-region: ap-south-1
     - name: Copy files
       run: |
